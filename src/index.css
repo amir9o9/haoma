@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "Ubuntu";
+  font-style: normal;
+  src: url("/public/fonts/Ubuntu-Regular.ttf");
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #1d1d1d;
+  background-color: #ffffff;
+  font-family: 'Ubuntu';
+  transition: all ease-in 0.5;
+}
+
+.nav-hover:hover{
+  color: #08CB00;
+}
+
+.input-field{
+  background: #515151;
+  width: 100%;
+  height: 40px;
+  display: block;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+@utility container{
+  margin-inline: auto;
+  padding-inline : 2rem;
+  
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+.cursor {
+  position: relative;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);
+  width: 0;
+  animation: typewriter 5s steps(50) 1s 1 normal both, blinkingCursor 500ms steps(50) infinite normal;
+}
+
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blinkingCursor {
+  from, to { border-right-color: transparent }
+  50% { border-right-color: black }
+}
+
+.typewriter-animation {
+  animation: typewriter 5s steps(50) 1s 1 normal both, blinkingCursor 500ms steps(50) infinite normal;
+}
+
+.typewriter-animation-2 {
+  animation: typewriter 5s steps(50) 4s 1 normal both, blinkingCursor 500ms steps(50) infinite normal;
+  animation-fill-mode: forwards; 
+}
+
+.path-cards{
+  background: #1d1d1d;
+  color: #ffffff;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  transition: all 0.4s ease-in;
+  padding: 20px;
+}
+
+.path-cards-text {
+  transition: all 0.7s ease-out;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;      
+  justify-content: center;  
+  align-items: center;      
+  text-align: center;
+  margin: auto;
+}
+
+/*(mobile-first) */
+.section-title {
+  font-size: 2.3rem;     
+  font-weight: 700;        
+  margin-bottom: 3rem;     
+  margin-top: 3rem;
+  text-align: center;  
+  color: #0bdf95;
+}
+
+.holographic-card {
+  width: 90px;
+  height: 90px;
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: all 0.5s ease;
+}
+
+.holographic-card h2 {
+  color: #0ff;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg, 
+    transparent, 
+    transparent 30%, 
+    rgba(0,255,255,0.3)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
